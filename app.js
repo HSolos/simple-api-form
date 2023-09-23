@@ -37,7 +37,7 @@ app.get("/api/persona/:dni", (req, res) => {
     if (!personaEncontrada) {
         res.status(404).json({ mensaje: "Persona no encontrada" });
     } else {
-        res.status(200).json(data);
+        res.status(200).json(personaEncontrada);
     }
 });
 
