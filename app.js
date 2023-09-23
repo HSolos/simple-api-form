@@ -1,12 +1,20 @@
 const express = require("express");
 const app = express();
-const port = process.env.PORT || 3000; // Usa el puerto proporcionado por Azure o el puerto 3000 de manera local
+const port = process.env.PORT || 3000;
 
-app.get("/", (req, res) => {
-    res.send("Hola, Azure");
-});
-app.post("/", (req, res) => {
-    res.send("Post Method");
+app.get("/api/persona", (req, res) => {
+    const data = {
+        dni: "12345678",
+        nombre: "Rosvel",
+        apellido: "Pérez",
+        fecha_nacimiento: "10-05-2010",
+        direccion: "Calle Principal 123",
+        ciudad: "Una Ciudad",
+        codigo_postal: "12345",
+        pais: "Peru",
+    };
+
+    res.send(data);
 });
 
 app.listen(port, () => {
