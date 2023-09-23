@@ -28,7 +28,7 @@ app.get("/api/personas", (req, res) => {
     res.status(200).json(data);
 });
 //
-app.get("/api/persona:dni", (req, res) => {
+app.get("/api/persona/:dni", (req, res) => {
     const dniBuscado = req.params.dni;
     const personaEncontrada = data.find(
         (persona) => persona.dni === dniBuscado
