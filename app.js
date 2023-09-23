@@ -24,6 +24,10 @@ const data = [
         pais: "Peru",
     },
 ];
+app.get("/", (req, res) => {
+    res.status(200).send("App");
+});
+//
 app.get("/api/personas", (req, res) => {
     res.status(200).json(data);
 });
