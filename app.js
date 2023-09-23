@@ -2,8 +2,8 @@ const express = require("express");
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.get("/api/persona", (req, res) => {
-    const data = {
+const data = [
+    {
         dni: "12345678",
         nombre: "Rosvel",
         apellido: "Pérez",
@@ -12,9 +12,33 @@ app.get("/api/persona", (req, res) => {
         ciudad: "Una Ciudad",
         codigo_postal: "12345",
         pais: "Peru",
-    };
+    },
+    {
+        dni: "87654321",
+        nombre: "María",
+        apellido: "López",
+        fecha_nacimiento: "10-05-2005",
+        direccion: "Avenida Secundaria 456",
+        ciudad: "Otra Ciudad",
+        codigo_postal: "54321",
+        pais: "Peru",
+    },
+];
+app.get("/api/personas", (req, res) => {
+    res.status(200).json(data);
+});
+//
+app.get("/api/persona:dni", (req, res) => {
+    const dniBuscado = req.params.dni;
+    const personaEncontrada = data.find(
+        (persona) => persona.dni === dniBuscado
+    );
 
-    res.send(data);
+    if (!personaEncontrada) {
+        res.status(404).json({ mensaje: "Persona no encontrada" });
+    } else {
+        res.status(200).json(data);
+    }
 });
 
 app.listen(port, () => {
