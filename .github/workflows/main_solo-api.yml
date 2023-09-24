@@ -52,5 +52,5 @@ jobs:
         with:
           app-name: 'solo-api'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_FC91267C9FE64176A7332B7F0D1B253E }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_05FEDCFE08804CD792E7D4C4B077061A }}
           package: .
